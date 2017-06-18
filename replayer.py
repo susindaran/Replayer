@@ -87,6 +87,7 @@ class Configuration:
 		self.jmx_ramp_up_period = config_parser.get('jmeterConfig', 'jmx_rampUpPeriod').strip()
 		self.jmx_loop_forever = config_parser.get('jmeterConfig', 'jmx_loopForever').strip()
 		self.jmx_loop_count = config_parser.get('jmeterConfig', 'jmx_loopCount').strip()
+		self.jxm_bin_path = config_parser.get('jmeterConfig', 'jmx_binPath').strip()
 
 
 class HostCheckHandler(EventHandler):
@@ -341,7 +342,7 @@ class Replayer:
 
 		self.logger.info("\nStarting Jmeter...\n")
 
-		jmeter_command = "apache-jmeter-2.13/bin/jmeter.sh -n -t " + self.config.jmx_target_file_name \
+		jmeter_command = self.config.jxm_bin_path + "jmeter.sh -n -t " + self.config.jmx_target_file_name \
 			+ " -j ./logs/jmeter.log"
 		self.task.run(jmeter_command, Handler = JmeterHandler())
 		self.logger.info("[COMPLETED]\n")

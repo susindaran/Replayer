@@ -58,3 +58,4 @@ jmx_numberOfThreads | Number of threads to spawn through Jmeter
 jmx_rampUpPeriod | Ramp up period for Jmeter
 jmx_loopForever | Boolean setting to either infinitely loop through the requests or not
 jmx_loopCount | Number of times the requests should be looped through if jmx_loopForever is false
+jmx_binPath | Path to the bin folder in the jmeter distribution
